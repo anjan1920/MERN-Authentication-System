@@ -1,0 +1,9 @@
+project flow 
+setup_
+cd backend
+npm init -y
+npm install express dotenv bcryptjs mongoose jsonwebtoken
+npm install nodemon --save-dev
+
+inside package.json under script add "type":"module"
+to use the import express from express ,modern syntax
