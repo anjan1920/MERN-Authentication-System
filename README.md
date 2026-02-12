@@ -144,7 +144,6 @@ cd MERN-Authentication-System
 ### 2️⃣ Install Backend Dependencies
 
 ```
-cd backend
 npm install
 ```
 
