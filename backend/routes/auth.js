@@ -12,7 +12,7 @@ router.post("/register", async (req, res) => {
   console.log("Register post hit..");
 
   try {
-    const { username, email, password } = req.body;
+    let { username, email, password } = req.body;
 
     if (!username || !email || !password) {
       return res.status(400).json({ message: "Please fill all the fields" });
@@ -22,12 +22,14 @@ router.post("/register", async (req, res) => {
 
     const userExists = await User.findOne({ email });
     if (userExists) {
-      return res.status(400).json({ message: "User already exists" });
+      return res.status(400).json({ message: `User with email id ${email} is already exists` });
     }
 
     console.log("User not exists..");
 
-    
+    //remove space from user name 
+    username = username.replace(/\s+/g, ''); 
+  
     const user = await User.create({
       username,
       email,
